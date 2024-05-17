@@ -1,13 +1,180 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Portafolio de Lucas Carmusciano</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Hola mundo
-    </h1>
+    <header id="myHeader">
+        <nav>
+            <div><a href="#inicio" id="LucasC">Lucas Carmusciano</a></div>
+            <ul>
+                <li><a href="#sobre-mi">About</a></li>
+                <li><a href="#mySkills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li id="resume"><img src="images/pdf.png"><a href="files/CVLucasEnglish.pdf" download="Carmusciano_Lucas_CV.pdf"> Resume</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="inicio" class="inicio">
+        <div class="contenido-inicio">
+            <img src="images/me/me1-min copia.JPG" alt="Foto de Lucas Carmusciano">
+            <div>
+                <h1>Lucas Carmusciano</h1>
+                <p>AI developer - Artificial Intelligence Engineering Student</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre-mi">
+        <div class="contenido-about">
+            <div id="img-about">
+                <img id="img-me" src="images/me/me2-min-2 copia.JPG" alt="Foto de Lucas Carmusciano">
+                <div>
+                    <a id="linkedin" href="https://www.linkedin.com/in/lucascarmu/">
+                        <img src="images/link-logo/linkedin.png" alt="LinkedIn">
+                    </a>
+                    <a id="instragram" href="https://www.instagram.com/lucas.carmu/">
+                        <img src="images/link-logo/instagram.png" alt="Instagram">
+                    </a>
+                    <a id="github" href="https://github.com/lucascarmu">
+                        <img src="images/link-logo/github.png" alt="GitHub">
+                    </a>
+                </div>
+            </div>
+            <div id="text-about">
+                <h1>Lucas Carmusciano</h1>
+                <h2>AI developer - Artificial Intelligence Engineering Student</h2>
+                <p>I graduated from the Universidad Nacional del Centro de la Provincia de Buenos Aires (UNICEN) in 2024,
+                     and my passion is artificial intelligence. My interests include software design and development,
+                      as well as machine learning, computer vision, and natural language processing.</p>
+
+                <p>Currently, I am pursuing a degree in Artificial Intelligence Engineering at the University of Palermo,
+                     where I am focused on deepening my knowledge in this area while taking courses to enhance my skills.</p>
+                     
+                <h3>Education</h3>
+                <ul>
+                    <li>
+                        <p class="university-name">Universidad de Palermo, Buenos Aires, Argentina</p>
+                        <p>Estudiante de Ingeniería en Inteligencia Artificial</p>
+                    </li>
+                    <li>
+                        <p class="university-name">Universidad Nacional del Centro de la Provincia de Buenos Aires (UNICEN), Argentina</p>
+                        <p>Técnico Universitario en Desarrollo de Aplicaciones Informáticas (TUDAI)</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="mySkills">
+        <h1>MY SKILLS</h1>
+        <section id="skills-section">
+            <ul class="categories">
+                <li class="selected">Data science & ML</li>
+                <li>Deep Learning</li>
+                <li>Frontend & backend</li>
+            </ul>
+            <div class="items">
+            </div>
+        </section>
+    </section>
+
+    <section id="projects">
+        <h1>PERSONAL PROJECTS</h1>
+        <section id="projects-section">
+            <ul>
+                <li>
+                    <div class="image"><a href="https://github.com/lucascarmu/TensorFlow-Practice">
+                        <img src="images/projects/tensorflow-practice.png"></a></div>
+                    <div class="text">
+                        <h4>Machine Learning</h4>
+                        <h2>Tensorflow practice</h2>
+                        <p>Learn about Tensorflow in my repository</p>
+                        <p class="date">May 16, 2024</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="image"><img src=""></div>
+                    <div class="text">
+                        <h4></h4>
+                        <h2></h2>
+                        <p></p>
+                        <p class="date"></p>
+                    </div>
+                </li>
+                <li>
+                    <div class="image"><img src=""></div>
+                    <div class="text">
+                        <h4></h4>
+                        <h2></h2>
+                        <p></p>
+                        <p class="date"></p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </section>
+
+        <section id="contact">
+            <h1>Contact me</h1>
+            <section id="contact-section">
+                <form action="https://api.web3forms.com/submit" method="POST" id="form" class="needs-validation" novalidate>
+                    <input type="hidden" name="access_key" value="373af2b5-2f91-409e-96d1-f5f6e630c92c" />
+                    <input type="hidden" name="subject" value="New Submission from Portfolio" />
+                    <input type="checkbox" name="botcheck" id="" style="display: none;" />
+          
+                    <div class="inputs">
+                        <div class="flex mb-6 space-x-4 block1">
+                            <div class="w-full md:w-1/2">
+                                <input type="text" name="name" id="first_name" placeholder="Your Name" required class="w-full px-3 py-2 placeholder-gray-300 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" />
+                                <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
+                                Please provide your first name.
+                                </div>
+                            </div>
+                            <div class="w-full md:w-1/2">
+                                <input type="email" name="email" id="email" placeholder="Your Email" required class="w-full px-3 py-2 placeholder-gray-300 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" />
+                                <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
+                                Please provide your email address.
+                                </div>
+                                <div class="invalid-feedback text-red-400 text-sm mt-1">
+                                Please provide a valid email address.
+                                </div>
+                            </div>
+                            <div class="w-full md:w-1/2">
+                                <input type="text" name="phone" id="phone" placeholder="Your Phone" required class="w-full px-3 py-2 placeholder-gray-300 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" />
+                                
+                                <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
+                                Please provide your phone number.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-6 block2">
+                            <textarea rows="5" name="message" id="message" placeholder="Your Message" class="w-full px-3 py-2 placeholder-gray-300 border-2 border-gray-200 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" required></textarea>
+                            <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
+                            Please enter your message.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <button type="submit" class="w-full px-3 py-4 text-white bg-indigo-500 rounded-md focus:bg-indigo-600 focus:outline-none">
+                        Send Message
+                        </button>
+                    </div>
+                    <p class="text-base text-center text-gray-400" id="result"></p>
+                  </form>
+            </section>
+        </section>
+    
+    
+        <footer>
+            <p>&copy; 2024 Lucas Carmusciano - Todos los derechos reservados</p>
+        </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,631 @@
+/* Estilos generales */
+body {
+    font-family: -apple-system, "system-ui", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+
+    margin: 0;
+    padding: 0;
+    background-image: url('images/background.svg');
+    background-position: center; /* Centra la imagen */
+    background-size: 140% auto; /* Ajusta la imagen para cubrir todo el fondo */
+    background-attachment: fixed; /* Fija la imagen en su posición mientras se desplaza */
+    background-color: rgb(15,17,20);
+    animation: desplazamiento 10s infinite alternate; /* Aplica una animación de desplazamiento */
+}
+
+@keyframes desplazamiento {
+    0% { background-position-y: 5%;
+        background-position-x: 55%; } /* La imagen se desplaza hacia arriba */
+    100% { background-position-y: 15%;
+        background-position-x: 50%; } /* La imagen vuelve a su posición original */
+}
+
+#myHeader {
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.5), rgba(0,0,0,0));
+    color: #fff;
+    padding: 20px;
+    padding-left: 0;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 70px;
+    z-index: 1000;
+    transition: background-color 0.3s ease-in-out, height 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+}
+#myHeader.scrolled {
+    background-color: rgb(21, 23, 26);
+    background-image: none;
+    height: 30px;
+}
+#myHeader.scrolled::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px; /* Grosor de la línea */
+    background-color: rgb(51, 50, 59); /* Color de la línea */
+  }
+#myHeader #LucasC {
+    font-size: 35px;
+    transition: font-size 0.3s ease-in-out;
+}
+#myHeader.scrolled #LucasC {
+    font-size: 25px;
+}
+  
+header nav {
+    width: 80%;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    font-family: 'Oswald', sans-serif;
+
+}
+
+header a {
+    position: relative;
+    display: inline-block;
+}
+header a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px; /* Ajusta la posición vertical de la barra */
+    width: 0; /* Inicialmente la barra no tiene ancho */
+    height: 2px; /* Altura de la barra */
+    background: linear-gradient(135deg, #986eeb, #fd68b3 50%, #fdb786 100%);
+    transition: width 0.3s ease; /* Transición suave para el ancho de la barra */
+}
+header a:hover::after {
+    width: 100%;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    height: 18px;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    display: inline;
+    height: 100%;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    height: 100%;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: smaller;
+    font-weight:lighter;
+    letter-spacing: 1.5px;
+    display: flex;
+    align-items: center;
+}
+#resume {
+    display: flex;
+}
+nav ul li img{
+    width: 18px;
+    filter: invert(1);
+}
+#resume a{
+    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif; 
+    font-weight: 600; 
+    font-size: 14.4px; 
+    line-height: 21.6px; 
+    letter-spacing: 0px;
+}
+
+nav div a{
+    text-decoration: none;
+    color: #fff;
+    letter-spacing: -1px;
+    font-size: x-large;
+    font-weight: bold;
+}
+/* Estilos para el inicio */
+.inicio {
+    height: 100vh; /* Toma el 100% de la altura de la ventana del navegador */
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.inicio canvas {
+    height: 40vw; /* Toma el 100% de la altura de la ventana del navegador */
+    width: 60vw;
+}
+
+.contenido-inicio {
+    text-align: center;
+}
+
+.contenido-inicio img {
+    width: 200px; /* Ajusta el tamaño de tu foto */
+    border-radius: 50%; /* Para hacer la foto redonda */
+    border: 6px solid white; /* Borde de color blanco */
+}
+
+.contenido-inicio div h1{
+    margin-top: 2vw;
+    margin-bottom: -10px;
+    color: #fff;
+    font-size: 60px;
+    letter-spacing: -3px;
+    font-weight: bolder;
+}
+.contenido-inicio div p{
+    font-size: 24px;
+    color: #fff;
+}
+
+
+footer {
+    background-color: rgb(21, 23, 26);
+    color: #fff;
+    text-align: center;
+    padding: 20px 0 20px 0;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Estilos específicos */
+
+#proyectos, #sobre-mi, #contacto, #mySkills {
+    background-color: #eaeaea;
+}
+
+
+/* ABOUT ME */
+
+.contenido-about {
+    border-top: 50px solid #fff;
+    border-bottom: 50px solid #fff;
+
+    background-color: #EDEEEF;
+    padding: 5vh 0px 5vh 0px;
+    display: flex;
+    justify-content: center;
+}
+
+.contenido-about #img-about {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.contenido-about #img-about #img-me {
+    width: 22vw; /* Ajusta el tamaño de tu foto */
+    border-radius: 50%; /* Para hacer la foto redonda */
+    border: 6px solid white; /* Borde de color blanco */
+}
+.contenido-about #img-about div{
+    width: 22vw; /* Ajusta el tamaño de tu foto */
+    height: 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.contenido-about #img-about div a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0% 2.5% 0% 2.5%;
+    width: 15%;
+    height: 66%;
+    border-radius: 50%;
+    background-color: rgb(21, 23, 26);
+    transition: background-color 0.3s ease;
+}
+
+.contenido-about #img-about div a:hover {
+    background-color: rgb(114, 127, 131);
+}
+
+.contenido-about #img-about div a img {
+    width: 50%;
+    filter: invert(1);
+}
+
+.contenido-about #text-about {
+    margin-left: 2vw;
+    width: 50vw;
+    height: auto;
+    background-color: none; 
+}
+.contenido-about #text-about h2 {
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 32px;
+    color: rgb(33, 37, 41);
+}
+.contenido-about #text-about h1 {
+    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28.8px;
+    color: rgb(33, 37, 41);
+}
+.contenido-about #text-about p {
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 300;
+    font-size: 18.6667px;
+    line-height: 29.8667px;
+    color: rgb(33, 37, 41);
+}
+.contenido-about #text-about .university-name {
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+}
+.contenido-about #text-about ul li p {
+    font-size: 15px;
+    margin: 0px 0px 0px 0px;
+}
+.contenido-about #text-about h3 {
+    margin-bottom: 0px;
+}
+.contenido-about #text-about ul {
+    margin-top: 5px;
+}
+
+/* SKILLS */
+
+#mySkills {
+    background-color: rgb(45, 45, 45);
+    height: 60vw;
+    display: flex;
+    flex-direction: column;
+}
+#mySkills h1 {
+    margin-top: 2vw;
+    margin-left: 12.5vw;
+    color: #fff;
+    font-size: 3vw;
+    letter-spacing: -2px;
+    font-weight: bolder;
+}
+#mySkills #skills-section {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#mySkills #skills-section ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    height: 4vw;
+    width: 75vw;
+    display: flex;
+    justify-content: space-around;
+}
+
+#mySkills #skills-section ul li {
+    position: relative;
+    width: 20%;
+    text-align: center;
+    line-height: 3.5em;
+    display: inline-block;
+    font-family: 'Oswald', sans-serif;
+    color: rgb(255, 255, 255, 0.4);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.1vw;
+    font-weight:lighter;
+    letter-spacing: 1px;
+    position: relative;
+    transition: color 0.3s ease; 
+}
+#mySkills #skills-section ul li:hover {
+    cursor: pointer;
+}
+
+
+#mySkills #skills-section ul li.selected {
+    color: white;
+}
+
+#mySkills #skills-section ul li::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0px;
+    width: 0; 
+    height: 2px; 
+    background-color: white;
+    transition: width 0.3s ease; 
+}
+#mySkills #skills-section ul li.selected::after {
+    width: 100%;
+}
+
+
+#mySkills #skills-section .items ul {
+    padding: 4vw 0 4vw 0;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+}
+#mySkills #skills-section .items ul li:hover {
+    cursor: auto;
+}
+
+#mySkills #skills-section .items ul li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#mySkills #skills-section .items ul li div {
+    width: 12vw;
+    height: 12vw;
+    border-radius: 50%;
+    z-index: 10;
+    background-color: rgb(231, 231, 231);
+    box-shadow: 0 0 3vw rgba(255, 255, 255, 0.229); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#mySkills #skills-section .items ul li div img {
+    height: 80%;
+    width: auto;
+}
+#mySkills #skills-section .items ul li p {
+    color: #fff;
+}
+
+
+/* PROJECTS */
+
+#projects {
+    background-color: rgb(35, 35, 35);
+    height: 60vw;
+    display: flex;
+    flex-direction: column;
+}
+#projects h1 {
+    margin-top: 8vw;
+    margin-left: 12.5vw;
+    color: #fff;
+    font-size: 3vw;
+    letter-spacing: -2px;
+    font-weight: bolder;
+}
+#projects #projects-section {
+    height: 100%;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#projects #projects-section ul {
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    
+}
+#projects #projects-section ul li {
+    position: relative;
+    width: 30%;
+    height: 70%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    font-size: 1.1vw;
+    letter-spacing: 1px;
+}
+#projects #projects-section ul li .image{
+    width: 100%;
+    height: 45%;
+    overflow: hidden;
+    transition: transform 0.3s ease; 
+}
+#projects #projects-section ul li .image:hover {
+    transform: scale(1.1); 
+    cursor: pointer;
+}
+
+#projects #projects-section ul li .image img{
+    width: 100%; 
+    height: 100%;
+    object-fit: cover; 
+}
+#projects #projects-section ul li div.text h4{
+    margin-bottom: 0;
+    width: 100%;
+    font-family: -apple-system, "system-ui", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 14px;
+    font-style: normal;
+    color: #5f5f5f;
+}
+#projects #projects-section ul li div.text{
+    text-align: left;
+}
+#projects #projects-section ul li div.text h2{
+    font-family: -apple-system, "system-ui", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 31.2px;
+    font-style: normal;
+    color: #ffffff;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+#projects #projects-section ul li div.text p{
+    font-family: -apple-system, "system-ui", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    font-style: normal;
+    color: #979797;
+    margin-top: 3px;
+    margin-bottom: 0;
+}
+#projects #projects-section ul li div.text p.date{
+    font-family: -apple-system, "system-ui", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 25.6px;
+    font-style: normal;
+    color: #5f5f5f;
+}
+
+
+
+/* CONTACT */
+
+#contact {
+    background-color: rgb(214, 214, 214);
+    height: 45vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+#contact h1 {
+    margin-top: 8vw;
+    color: rgb(45, 45, 45);
+    font-size: 3vw;
+    letter-spacing: -2px;
+    font-weight: bolder;
+}
+#contact #contact-section {
+    height: 100%;
+    width: 100%;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#contact #contact-section form {
+    height: 100%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#contact #contact-section form .inputs{
+    width: 80%;
+    height: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+}
+#contact #contact-section form .inputs .block1{
+    display: flex;
+    height: 100%;
+    width: 50%;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#contact #contact-section form .inputs .block1 div{
+    height: 25%;
+    width: 94%;
+}
+#contact #contact-section form .inputs .block1 div input{
+    height: 90%;
+    width: 100%;
+    padding-left: 15px;
+    border-radius: 7px;
+    outline: none;
+    border: 2px solid rgb(150, 150, 150, 0.8);
+}
+#contact #contact-section form .inputs .block1 div input::placeholder {
+    font-family: "Source Sans Pro", sans-serif; 
+    font-weight:bolder; 
+    font-size: 16px; 
+    line-height: 24px;
+    color: #49505746; 
+    font-style: normal;
+}
+#contact #contact-section form .inputs .block2{
+    display: flex;
+    height: 100%;
+    width: 50%;
+    flex-direction: column;
+    justify-content: center;
+    align-items:flex-end;
+}
+#contact #contact-section form .inputs .block2 textarea{
+    padding-top: 15px;
+    resize: none;
+    padding-left: 15px;
+    height: 100%;
+    width: 94%;
+    border-radius: 7px;
+    outline: none;
+    border: 2px solid rgb(150, 150, 150, 0.8);
+}
+#contact #contact-section form .inputs .block2 textarea::placeholder {
+    font-family: "Source Sans Pro", sans-serif; 
+    font-weight:bolder; 
+    font-size: 16px; 
+    line-height: 24px;
+    color: #49505746; 
+    font-style: normal;
+}
+
+#contact #contact-section form button {
+    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif; 
+    font-weight: 700; 
+    font-size: 18px; 
+    line-height: 27px; 
+    color: rgb(255, 255, 255); 
+    background-color: rgb(35, 35, 35); 
+    border: none; 
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+}
+#contact #contact-section form button:hover {
+    background-color: rgb(70, 70, 70); 
+}
+.invalid-feedback{
+    color: red;
+}
+
+.invalid-feedback,
+.empty-feedback {
+  display: none;
+}
+
+.was-validated :placeholder-shown:invalid ~ .empty-feedback {
+  display: block;
+}
+
+.was-validated :not(:placeholder-shown):invalid ~ .invalid-feedback {
+  display: block;
+}
+
+.is-invalid,
+.was-validated :invalid {
+  border-color: #dc3545;
+}
