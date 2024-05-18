@@ -11,6 +11,10 @@ body {
     background-color: rgb(15,17,20);
     animation: desplazamiento 10s infinite alternate; /* Aplica una animación de desplazamiento */
 }
+html {
+    scroll-behavior: smooth;
+}
+
 
 @keyframes desplazamiento {
     0% { background-position-y: 5%;
