@@ -27,7 +27,7 @@ function scrollFunction() {
 
 var deepLearningSkills = ['Tensorflow', 'Keras', 'PyTorch'];
 var frontBackSkills = ['CSS', 'HTML5', 'JavaScript', 'C++', 'Java', 'Python', 'Spring'];
-var MLSkills = ['Jupyter', 'Scikit_Learn', 'Pandas', 'Matlab', 'Matplotlib', 'Numpy', 'Seaborn'];
+var MLSkills = ['Jupyter', 'Scikit_Learn', 'Pandas', 'Matlab', 'Matplotlib', 'Numpy', 'Seaborn', 'Scipy'];
 
 
 function modificarLista(listaOriginal, path){
@@ -54,6 +54,7 @@ function generarListaHTML(lista) {
 
     listaHTML += '<ul>';
       primeraMitad.forEach(elemento => {
+        console.log(elemento);
         elementName = elemento.split("/")[primeraMitad.length-1].split(".")[0].replace(/_/g, " ");
         listaHTML += `<li><div><img src=${elemento}></div><p>${elementName}</p></li>`;
       });
@@ -62,7 +63,8 @@ function generarListaHTML(lista) {
   }
   listaHTML += '<ul>';
     lista.forEach(elemento => {
-      elementName = elemento.split("/")[lista.length].split(".")[0].replace(/_/g, " ");
+      console.log(elemento);
+      elementName = elemento.split("/")[lista.length-1].split(".")[0].replace(/_/g, " ");
       listaHTML += `<li><div><img src=${elemento}></div><p>${elementName}</p></li>`;
     });
   listaHTML += '</ul>';

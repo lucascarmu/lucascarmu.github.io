@@ -289,6 +289,7 @@ footer {
     background-color: rgb(45, 45, 45);
     height: 60vw;
     display: flex;
+    padding-top: 10vh;
     flex-direction: column;
 }
 #mySkills h1 {
@@ -386,8 +387,8 @@ footer {
 }
 
 #mySkills #skills-section .items ul li div img {
-    height: 80%;
-    width: auto;
+    height: auto;
+    width: 70%;
 }
 #mySkills #skills-section .items ul li p {
     color: #fff;
