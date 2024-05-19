@@ -54,8 +54,8 @@ function generarListaHTML(lista) {
 
     listaHTML += '<ul>';
       primeraMitad.forEach(elemento => {
-        console.log(elemento);
-        elementName = elemento.split("/")[primeraMitad.length-1].split(".")[0].replace(/_/g, " ");
+        elementArray = elemento.split("/");
+        elementName = elementArray[elementArray.length-1].split(".")[0].replace(/_/g, " ");
         listaHTML += `<li><div><img src=${elemento}></div><p>${elementName}</p></li>`;
       });
     listaHTML += '</ul>';
@@ -63,8 +63,8 @@ function generarListaHTML(lista) {
   }
   listaHTML += '<ul>';
     lista.forEach(elemento => {
-      console.log(elemento);
-      elementName = elemento.split("/")[lista.length-1].split(".")[0].replace(/_/g, " ");
+      elementArray = elemento.split("/");
+      elementName = elementArray[elementArray.length-1].split(".")[0].replace(/_/g, " ");
       listaHTML += `<li><div><img src=${elemento}></div><p>${elementName}</p></li>`;
     });
   listaHTML += '</ul>';
