@@ -10,7 +10,59 @@ document.addEventListener('DOMContentLoaded', function() {
             this.classList.add('active');
         });
     });
+
+
+    // PROJECT
+    const imagesProjects = document.querySelectorAll(".clickable-image");
+    const overlay = document.getElementById("overlay");
+    const closeBtn = document.getElementById("close-btn");
+    const modal = document.getElementById("modal");
+
+
+    imagesProjects.forEach(function(image) {
+      image.addEventListener("click", function() {
+        overlay.classList.add("show");
+        insertarListaEnElemento("none", '.items');
+        modal.innerHTML = generarModal(image.id);
+      });
+    });
+
+    closeBtn.addEventListener("click", function() {
+      overlay.classList.remove("show");
+      insertarListaEnElemento(c, '.items');
+    });
+
+    // También cerramos el modal si se hace clic fuera del bloque modal
+    overlay.addEventListener("click", function(event) {
+      if (event.target === overlay) {
+          overlay.classList.remove("show");
+          insertarListaEnElemento(c, '.items');
+      }
+    });
 });
+
+function generarModal(idImage){
+  var htmlModal = '';
+  switch (idImage) {
+    case "TensorflowPractice":
+      htmlModal += '<h1>TensorFlow Practice</h1>';
+      htmlModal += '<h2>Learn about TensorFlow</h2>';
+      htmlModal += '<div>This repository provides different sections for training neural networks using TensorFlow such as Regression, Classification, Convolutional Neural Networks (Computer Vision), Transfer Learning and Natural Language Processing.</div>';
+      htmlModal += '<img src="images/projects/tensorflowlogo.png">'
+      htmlModal += '<p>View this project on GitHub: <a href="https://github.com/lucascarmu/TensorFlow-Practice">https://github.com/lucascarmu/TensorFlow-Practice</a></p>';
+      break;
+    case "PubMed":
+      htmlModal += '<h1>PubMed - Sequential Sentence Classification</h1>';
+      htmlModal += '<h2>Implemented a research paper PubMed 200k RCT</h2>';
+      htmlModal += '<div>The research paper presents a Dataset for Sequenctial Sentence Classification in Medical Abstracts which consists of ~200,000 labelled Randomized Controlled Trial (RCT) abstracts.</div>';
+      htmlModal += '<img src="images/projects/pubmed.jpg">'
+      htmlModal += '<p>View this project on GitHub: <a href="https://github.com/lucascarmu/PubMed-Sequential_Sentence_Classification">https://github.com/lucascarmu/PubMed-Sequential_Sentence_Classification</a></p>';
+      break;
+    default:
+      break;
+  }
+  return htmlModal;
+}
 
 window.onscroll = function() {scrollFunction()};
 function scrollFunction() {
@@ -37,11 +89,6 @@ function modificarLista(listaOriginal, path){
 deepLearningSkills = modificarLista(deepLearningSkills, "images/skills/DeepL/")
 frontBackSkills = modificarLista(frontBackSkills, "images/skills/front&back/")
 MLSkills = modificarLista(MLSkills, "images/skills/ML/")
-
-console.log(deepLearningSkills);
-console.log(frontBackSkills);
-console.log(MLSkills);
-
 
 
 function generarListaHTML(lista) {
@@ -76,13 +123,16 @@ function insertarListaEnElemento(categoria, selector) {
   var lista;
   switch(categoria){
     case "Frontend":
-      lista = frontBackSkills
+      lista = frontBackSkills;
       break
     case "Data":
-      lista = MLSkills
+      lista = MLSkills;
       break
     case "Deep":
-      lista = deepLearningSkills
+      lista = deepLearningSkills;
+      break
+    case "none":
+      lista = [];
       break
   }
   const elemento = document.querySelector(selector);

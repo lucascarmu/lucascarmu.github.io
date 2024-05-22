@@ -86,12 +86,13 @@
     </section>
 
     <section id="projects">
+        <h3>PORTFOLIO</h3>
         <h1>PERSONAL PROJECTS</h1>
         <section id="projects-section">
             <ul>
                 <li>
-                    <div class="image"><a href="https://github.com/lucascarmu/TensorFlow-Practice">
-                        <img src="images/projects/tensorflow-practice.png"></a></div>
+                    <div class="image">
+                        <img class="clickable-image" id="TensorflowPractice" src="images/projects/tensorflow-practice.png"></div>
                     <div class="text">
                         <h4>Machine Learning</h4>
                         <h2>Tensorflow practice</h2>
@@ -99,14 +100,14 @@
                         <p class="date">May 16, 2024</p>
                     </div>
                 </li>
-<!--
                 <li>
-                    <div class="image"><img src=""></div>
+                    <div class="image">
+                        <img class="clickable-image" id="PubMed" src="images/projects/sequential-sentence-classification.jpg"></div>
                     <div class="text">
-                        <h4></h4>
-                        <h2></h2>
-                        <p></p>
-                        <p class="date"></p>
+                        <h4>Natural Lenguage Processing</h4>
+                        <h2>Sequential Sentence Classification</h2>
+                        <p>Implemented a reasearch paper PubMed 200k RCT</p>
+                        <p class="date">May 22, 2024</p>
                     </div>
                 </li>
                 <li>
@@ -118,10 +119,16 @@
                         <p class="date"></p>
                     </div>
                 </li>
--->
             </ul>
         </section>
     </section>
+    <div id="overlay" class="overlay hidden">
+        <div id="modal">
+            <span class="close-btn" id="close-btn">&times;</span>
+            <p>Este es el contenido del bloque modal.</p>
+        </div>
+    </div>
+
 
         <section id="contact">
             <h1>Contact me</h1>
