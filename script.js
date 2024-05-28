@@ -15,36 +15,150 @@ document.addEventListener('DOMContentLoaded', function() {
     // PROJECT
     const imagesProjects = document.querySelectorAll(".clickable-image");
     const overlay = document.getElementById("overlay");
-    const closeBtn = document.getElementById("close-btn");
     const modal = document.getElementById("modal");
+    const header = document.getElementById('myHeader');
+    let startX = 0;
 
+    modal.addEventListener('touchstart', (e) => {
+        const touch = e.touches[0];
+        startX = touch.clientX;
+    });
+
+    modal.addEventListener('touchmove', (e) => {
+        const touch = e.touches[0];
+        const diffX = touch.clientX - startX;
+
+        if (diffX > 50) {
+          closeModal();
+        }
+    });
 
     imagesProjects.forEach(function(image) {
       image.addEventListener("click", function() {
         overlay.classList.add("show");
         insertarListaEnElemento("none", '.items');
+        if (window.innerWidth <= 768) {
+          header.classList.add('hidden');
+        }
+        modal.classList.remove('hidden');
+        modal.classList.add('show');
         modal.innerHTML = generarModal(image.id);
       });
     });
 
-    closeBtn.addEventListener("click", function() {
-      overlay.classList.remove("show");
-      insertarListaEnElemento(c, '.items');
-    });
 
     // También cerramos el modal si se hace clic fuera del bloque modal
     overlay.addEventListener("click", function(event) {
       if (event.target === overlay) {
-          overlay.classList.remove("show");
-          insertarListaEnElemento(c, '.items');
+        closeModal();
       }
     });
+
+    if (window.innerWidth <= 768) {
+      let lastScrollY = window.scrollY;
+    
+      window.addEventListener('scroll', () => {
+          if(!modal.classList.contains('show') && (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50)){
+            if (window.scrollY > lastScrollY) {
+                // Scrolling down
+                header.classList.add('hidden');
+            } else {
+                // Scrolling up
+                header.classList.remove('hidden');
+            }
+            lastScrollY = window.scrollY;
+          }
+        });
+    }
+
+    document.addEventListener("click", function(event) {
+      if (!header.contains(event.target) && header.classList.contains("visible")) {
+          header.classList.remove("visible");
+      }
+  });
 });
 
+function navFunction(key){
+  const header = document.getElementById('myHeader');
+
+  switch (key) {
+    case 'show':
+      header.classList.add('visible');
+      break;
+    default:
+      header.classList.remove('visible');
+      break;
+  }
+}
+
+function closeToggleMenu(){
+  if (window.innerWidth <= 768) {
+    const header = document.getElementById('myHeader');
+    toggleMenu();
+    setTimeout(function() {
+      header.classList.remove('hidden');
+    }, 400);
+  }
+}
+// MENU HAMBURGUESA
+function toggleMenu() {
+  var topLine = document.getElementById("top-line");
+  var bottomLine = document.getElementById("bottom-line");
+  var targetX2Top, targetX1Bottom;
+  if (topLine.getAttribute("x2") === "13.75") {
+      navFunction("show");
+      targetX2Top = 19;
+      targetX1Bottom = 5;
+  } else {
+      navFunction("hidde");
+      targetX2Top = 13.75;
+      targetX1Bottom = 10.25;
+  }
+  animateLine(topLine, parseFloat(topLine.getAttribute("x2")), targetX2Top);
+  animateLine(bottomLine, parseFloat(bottomLine.getAttribute("x1")), targetX1Bottom, 'bottom');
+}
+function animateLine(line, currentX, targetX, position) {
+  var startTime = null;
+  function step(timestamp) {
+      if (!startTime) startTime = timestamp;
+      var progress = timestamp - startTime;
+      var newX = currentX + (targetX - currentX) * progress / 200; // 200ms para la animación
+      if (position === 'bottom') {
+          line.setAttribute("x1", newX);
+      } else {
+          line.setAttribute("x2", newX);
+      }
+      if (progress < 200) {
+          requestAnimationFrame(step);
+      } else {
+          if (position === 'bottom') {
+              line.setAttribute("x1", targetX);
+          } else {
+              line.setAttribute("x2", targetX);
+          }
+      }
+  }
+  requestAnimationFrame(step);
+}
+
+
+
+function closeModal() {
+  setTimeout(function() {
+    overlay.classList.remove("show");
+  }, 400);
+  modal.classList.remove('show');
+  modal.classList.add('hidden');
+  document.getElementById('myHeader').classList.remove('hidden');
+  setTimeout(function() {
+    insertarListaEnElemento(c, '.items');
+  }, 400);
+}
 function generarModal(idImage){
   var htmlModal = '';
   switch (idImage) {
     case "TensorflowPractice":
+      htmlModal += '<div onclick="closeModal()"><svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M15 8a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 7.5H14.5A.5.5 0 0 1 15 8z"/></svg></div>';
       htmlModal += '<h1>TensorFlow Practice</h1>';
       htmlModal += '<h2>Learn about TensorFlow</h2>';
       htmlModal += '<div>This repository provides different sections for training neural networks using TensorFlow such as Regression, Classification, Convolutional Neural Networks (Computer Vision), Transfer Learning and Natural Language Processing.</div>';
@@ -52,6 +166,7 @@ function generarModal(idImage){
       htmlModal += '<p>View this project on GitHub: <a href="https://github.com/lucascarmu/TensorFlow-Practice">https://github.com/lucascarmu/TensorFlow-Practice</a></p>';
       break;
     case "PubMed":
+      htmlModal += '<div onclick="closeModal()"><svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M15 8a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 7.5H14.5A.5.5 0 0 1 15 8z"/></svg></div>';
       htmlModal += '<h1>PubMed - Sequential Sentence Classification</h1>';
       htmlModal += '<h2>Implemented a research paper PubMed 200k RCT</h2>';
       htmlModal += '<div>The research paper presents a Dataset for Sequenctial Sentence Classification in Medical Abstracts which consists of ~200,000 labelled Randomized Controlled Trial (RCT) abstracts.</div>';
@@ -91,31 +206,24 @@ frontBackSkills = modificarLista(frontBackSkills, "images/skills/front&back/")
 MLSkills = modificarLista(MLSkills, "images/skills/ML/")
 
 
-function generarListaHTML(lista) {
+function generarListaHTML(lista, chunkSize) {
+  var chunkList = [];
   var listaHTML = '';
   var elementName = '';
-  if( lista.length >= 5){
-    const mitad = Math.ceil(lista.length / 2);
-    const primeraMitad = lista.slice(0, mitad);
-    const segundaMitad = lista.slice(mitad);
-
-    listaHTML += '<ul>';
-      primeraMitad.forEach(elemento => {
-        elementArray = elemento.split("/");
-        elementName = elementArray[elementArray.length-1].split(".")[0].replace(/_/g, " ");
-        listaHTML += `<li><div><img src=${elemento}></div><p>${elementName}</p></li>`;
-      });
-    listaHTML += '</ul>';
-    lista = segundaMitad;
+  for (let i = 0; i < lista.length; i += chunkSize) {
+    let chunk = lista.slice(i, i + chunkSize);
+    chunkList.push(chunk);
   }
-  listaHTML += '<ul>';
-    lista.forEach(elemento => {
+  chunkList.forEach(c => {
+    listaHTML += '<ul>';
+    c.forEach(elemento => {
       elementArray = elemento.split("/");
       elementName = elementArray[elementArray.length-1].split(".")[0].replace(/_/g, " ");
       listaHTML += `<li><div><img src=${elemento}></div><p>${elementName}</p></li>`;
     });
-  listaHTML += '</ul>';
-  
+    listaHTML += '</ul>';
+  });
+
   return listaHTML;
 }
 
@@ -137,12 +245,15 @@ function insertarListaEnElemento(categoria, selector) {
   }
   const elemento = document.querySelector(selector);
   if (elemento) {
-    elemento.innerHTML = generarListaHTML(lista);
+    if (window.innerWidth > 768) {
+      elemento.innerHTML = generarListaHTML(lista, 4);
+    }else{
+      elemento.innerHTML = generarListaHTML(lista, 3);
+    }
   } else {
     console.error(`No se encontró ningún elemento con el selector "${selector}".`);
   }
 }
-
 
 const items = document.querySelectorAll('#skills-section .categories li');
 let c = "Data";
