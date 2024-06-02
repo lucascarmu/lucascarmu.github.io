@@ -942,6 +942,7 @@ border-color: #dc3545;
 
     .contenido-inicio {
         text-align: center;
+        margin-top: 0;
     }
 
     .contenido-inicio img {
