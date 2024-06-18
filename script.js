@@ -193,8 +193,8 @@ function scrollFunction() {
 // SKILLS
 
 var deepLearningSkills = ['Tensorflow', 'Keras', 'PyTorch'];
-var frontBackSkills = ['CSS', 'HTML5', 'JavaScript', 'C++', 'Java', 'Python', 'Spring'];
-var MLSkills = ['Jupyter', 'Scikit_Learn', 'Pandas', 'Matlab', 'Matplotlib', 'Numpy', 'Seaborn', 'Scipy'];
+var frontBackSkills = ['CSS', 'HTML5', 'JavaScript', 'C++', 'Java', 'Python', 'Spring', 'Angular'];
+var MLSkills = ['Jupyter', 'Scikit_Learn', 'Pandas', 'Matlab', 'Matplotlib', 'Numpy', 'Seaborn', 'Scipy', 'Docker'];
 
 
 function modificarLista(listaOriginal, path){
@@ -246,7 +246,7 @@ function insertarListaEnElemento(categoria, selector) {
   const elemento = document.querySelector(selector);
   if (elemento) {
     if (window.innerWidth > 768) {
-      elemento.innerHTML = generarListaHTML(lista, 4);
+      elemento.innerHTML = generarListaHTML(lista, 5);
     }else{
       elemento.innerHTML = generarListaHTML(lista, 3);
     }
