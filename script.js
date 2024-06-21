@@ -194,7 +194,8 @@ function scrollFunction() {
 
 var deepLearningSkills = ['Tensorflow', 'Keras', 'PyTorch'];
 var frontBackSkills = ['CSS', 'HTML5', 'JavaScript', 'C++', 'Java', 'Python', 'Spring', 'Angular'];
-var MLSkills = ['Jupyter', 'Scikit_Learn', 'Pandas', 'Matlab', 'Matplotlib', 'Numpy', 'Seaborn', 'Scipy', 'Docker'];
+var MLSkills = ['Jupyter', 'Scikit_Learn', 'Pandas', 'Matlab', 'Matplotlib', 'Numpy', 'Seaborn', 'Scipy'];
+var MLOps = ['Docker', 'Kubernetes', 'GitHub_Actions'];
 
 
 function modificarLista(listaOriginal, path){
@@ -204,6 +205,7 @@ function modificarLista(listaOriginal, path){
 deepLearningSkills = modificarLista(deepLearningSkills, "images/skills/DeepL/")
 frontBackSkills = modificarLista(frontBackSkills, "images/skills/front&back/")
 MLSkills = modificarLista(MLSkills, "images/skills/ML/")
+MLOps = modificarLista(MLOps, "images/skills/MLOps/")
 
 
 function generarListaHTML(lista, chunkSize) {
@@ -239,6 +241,9 @@ function insertarListaEnElemento(categoria, selector) {
     case "Deep":
       lista = deepLearningSkills;
       break
+    case "MLOps":
+      lista = MLOps;
+      break
     case "none":
       lista = [];
       break
@@ -246,7 +251,7 @@ function insertarListaEnElemento(categoria, selector) {
   const elemento = document.querySelector(selector);
   if (elemento) {
     if (window.innerWidth > 768) {
-      elemento.innerHTML = generarListaHTML(lista, 5);
+      elemento.innerHTML = generarListaHTML(lista, 4);
     }else{
       elemento.innerHTML = generarListaHTML(lista, 3);
     }
