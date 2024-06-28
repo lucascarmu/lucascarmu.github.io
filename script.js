@@ -173,6 +173,13 @@ function generarModal(idImage){
       htmlModal += '<img src="images/projects/pubmed.jpg">'
       htmlModal += '<p>View this project on GitHub: <a href="https://github.com/lucascarmu/PubMed-Sequential_Sentence_Classification">https://github.com/lucascarmu/PubMed-Sequential_Sentence_Classification</a></p>';
       break;
+    case "BTC-predict":
+        htmlModal += '<div onclick="closeModal()"><svg width="50" height="50" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M15 8a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 7.5H14.5A.5.5 0 0 1 15 8z"/></svg></div>';
+        htmlModal += '<h1>Bitcoin Price Prediction using Time Series</h1>';
+        htmlModal += '<h2>Predicting future Bitcoin prices</h2>';
+        htmlModal += '<div>This project aims to predict the future value of Bitcoin using time series analysis and various machine learning techniques. By analyzing historical data, the project seeks to forecast Bitcoin prices with high accuracy.</div>';
+        htmlModal += '<img src="images/projects/bitcoin.jpg">';
+        htmlModal += '<p>View this project on GitHub: <a href="https://github.com/lucascarmu/BTC-Price-Predict/">https://github.com/lucascarmu/BTC-Price-Predict/</a></p>';
     default:
       break;
   }
