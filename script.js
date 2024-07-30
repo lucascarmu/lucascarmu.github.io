@@ -202,7 +202,7 @@ function scrollFunction() {
 var deepLearningSkills = ['Tensorflow', 'Keras', 'PyTorch'];
 var frontBackSkills = ['CSS', 'HTML5', 'JavaScript', 'C++', 'Java', 'Python', 'Spring', 'Angular'];
 var MLSkills = ['Jupyter', 'Scikit_Learn', 'Pandas', 'Matlab', 'Matplotlib', 'Numpy', 'Seaborn', 'Scipy'];
-var MLOps = ['Docker', 'Kubernetes', 'GitHub_Actions', 'MLflow', 'Pytest'];
+var MLOps = ['Docker', 'Kubernetes', 'GitHub_Actions', 'MLflow', 'Pytest', 'Apache_Airflow', 'Azure', 'Kubeflow'];
 
 
 function modificarLista(listaOriginal, path){
