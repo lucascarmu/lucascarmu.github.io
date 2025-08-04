@@ -154,7 +154,9 @@ function closeModal() {
     insertarListaEnElemento(c, '.items');
   }, 400);
 }
+
 function generarModal(idImage){
+  console.log("generarModal", idImage);
   var htmlModal = '';
   switch (idImage) {
     case "TensorflowPractice":
@@ -180,6 +182,22 @@ function generarModal(idImage){
         htmlModal += '<div>This project aims to predict the future value of Bitcoin using time series analysis and various machine learning techniques. By analyzing historical data, the project seeks to forecast Bitcoin prices with high accuracy.</div>';
         htmlModal += '<img src="images/projects/bitcoin.jpg">';
         htmlModal += '<p>View this project on GitHub: <a href="https://github.com/lucascarmu/BTC-Price-Predict/">https://github.com/lucascarmu/BTC-Price-Predict/</a></p>';
+        break;
+    case "GymTracker":
+        htmlModal += '<div onclick="closeModal()"><svg width="50" height="50" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M15 8a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 7.5H14.5A.5.5 0 0 1 15 8z"/></svg></div>';
+        htmlModal += '<h1>🏋️‍♂️ GymTracker</h1>';
+        htmlModal += '<h2>Computer Vision for Squat Form Feedback</h2>';
+        htmlModal += '<div>GymTracker is an application designed to analyze physical exercises, starting with the squat. The system processes a .mp4 video and generates:</div>';
+        htmlModal += '<ul>';
+        htmlModal += '<li>A processed video with visual overlays</li>';
+        htmlModal += '<li>Detailed feedback on technique</li>';
+        htmlModal += '<li>A graph showing the exercise path</li>';
+        htmlModal += '</ul>';
+        htmlModal += '<div>The goal is to assist athletes, coaches, and physical therapists in evaluating squat form using computer vision and AI.</div>';
+        htmlModal += '<div>By detecting the barbell and estimating key joint angles, the system delivers objective feedback on technical performance.</div>';
+        htmlModal += '<img src="images/projects/demo_results.gif">';
+        htmlModal += '<p>View this project on GitHub: <a href="https://github.com/lucascarmu/GymTracker" target="_blank">https://github.com/lucascarmu/GymTracker</a></p>';
+        break;
     default:
       break;
   }
@@ -200,9 +218,10 @@ function scrollFunction() {
 // SKILLS
 
 var deepLearningSkills = ['Tensorflow', 'Keras', 'PyTorch'];
-var frontBackSkills = ['CSS', 'HTML5', 'JavaScript', 'C++', 'Java', 'Python', 'Spring', 'Angular'];
+var frontBackSkills = ['CSS', 'HTML5', 'JavaScript', 'C++', 'Java', 'Python', 'Spring', 'FastAPI'];
 var MLSkills = ['Jupyter', 'Scikit_Learn', 'Pandas', 'Matlab', 'Matplotlib', 'Numpy', 'Seaborn', 'Scipy'];
 var MLOps = ['Docker', 'Kubernetes', 'GitHub_Actions', 'MLflow', 'Pytest', 'Apache_Airflow', 'Amazon_Web_Services'];
+var LLMSkills = ['Langchain', 'LlamaIndex', 'OpenAI_API', 'LM_Studio', 'Prompt_Engineering', 'Langfuse', 'AI_Agents'];
 
 
 function modificarLista(listaOriginal, path){
@@ -212,7 +231,8 @@ function modificarLista(listaOriginal, path){
 deepLearningSkills = modificarLista(deepLearningSkills, "images/skills/DeepL/")
 frontBackSkills = modificarLista(frontBackSkills, "images/skills/front&back/")
 MLSkills = modificarLista(MLSkills, "images/skills/ML/")
-MLOps = modificarLista(MLOps, "images/skills/MLOps/")
+MLOps = modificarLista(MLOps, "images/skills/MLOps/");
+LLMSkills = modificarLista(LLMSkills, "images/skills/LLM/")
 
 
 function generarListaHTML(lista, chunkSize) {
@@ -250,10 +270,13 @@ function insertarListaEnElemento(categoria, selector) {
       break
     case "MLOps":
       lista = MLOps;
-      break
+      break;
+    case "LLM":
+      lista = LLMSkills;
+      break;
     case "none":
       lista = [];
-      break
+      break;
   }
   const elemento = document.querySelector(selector);
   if (elemento) {
