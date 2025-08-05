@@ -195,7 +195,7 @@ function generarModal(idImage){
         htmlModal += '</ul>';
         htmlModal += '<div>The goal is to assist athletes, coaches, and physical therapists in evaluating squat form using computer vision and AI.</div>';
         htmlModal += '<div>By detecting the barbell and estimating key joint angles, the system delivers objective feedback on technical performance.</div>';
-        htmlModal += '<img src="images/projects/demo_results.gif">';
+        htmlModal += '<img src="images/projects/demo_results.png">';
         htmlModal += '<p>View this project on GitHub: <a href="https://github.com/lucascarmu/GymTracker" target="_blank">https://github.com/lucascarmu/GymTracker</a></p>';
         break;
     default:
